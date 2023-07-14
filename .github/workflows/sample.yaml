@@ -9,6 +9,10 @@ jobs:
     steps:
       - name: echo
         run: echo ${{ github.event.base_ref }}}
+      - name: echo
+        run: echo ${{ github.event.pusher }}}
+      - name: echo
+        run: echo ${{ github.event.sender }}}
       - name: Detect Push or Merge
         run: |
           if [[ ${{ github.event_name }} == 'push' ]]; then
