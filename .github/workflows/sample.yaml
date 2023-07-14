@@ -10,9 +10,9 @@ jobs:
       - name: echo
         run: echo ${{ github.event.base_ref }}}
       - name: echo
-        run: echo ${{ github.event.pusher }}}
+        run: echo ${{ github.event.pusher.username }}}
       - name: echo
-        run: echo ${{ github.event.sender }}}
+        run: echo ${{ github.event.sender.name }}}
       - name: Detect Push or Merge
         run: |
           if [[ ${{ github.event_name }} == 'push' ]]; then
