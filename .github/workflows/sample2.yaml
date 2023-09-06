@@ -1,0 +1,20 @@
+on:
+  workflow_dispatch: {}
+
+jobs:
+  detect_push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        run: echo "${{ github.event.base_ref }}"
+      - name: echo
+        run: echo "${{ github.event.pusher.username }}"
+      - name: echo
+        run: echo "${{ github.event.sender.name }}"
+      - name: Detect Push or Merge
+        run: |
+          if [[ ${{ github.event_name }} == 'push' ]]; then
+            echo "Direct Push to Main Branch"
+          elif [[ ${{ github.event_name }} == 'pull_request' ]]; then
+            echo "Merge to Main Branch"
+          fi
